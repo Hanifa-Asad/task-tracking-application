@@ -1,158 +1,163 @@
-# Fullstack Task Manager (MERN)
+# MERN Task Manager App
 
+![MERN Stack](https://img.shields.io/badge/MERN-Stack-blue?style=for-the-badge)
+![License](https://img.shields.io/badge/license-MIT-green?style=for-the-badge)
 
+A functional task management application built using the MERN (MongoDB, Express, React, Node.js) stack. The app allows users to manage tasks with features like user authentication (JWT & Google OAuth), task creation, task arrangement using drag-and-drop, and much more.
 
-# Overview
-The Cloud-Based Task Manager is a web application designed to streamline team task management. Built using the MERN stack (MongoDB, Express.js, React, and Node.js), this platform provides a user-friendly interface for efficient task assignment, tracking, and collaboration. The application caters to administrators and regular users, offering comprehensive features to enhance productivity and organization.
+![Task Manager App home](/images/home.png)
+![Task Manager App signup](/images/singup.png)
+![Task Manager App login](/images/login.png)
+![Task Manager App taskdetail](/images/taskdetails.png)
+![Task Manager App edittask](/images/taskedit.png)
 
+## 🌟 Features
 
+- **User Authentication**: Secure login, registration, and logout using JWT (HttpOnly cookies) for protection against XSS attacks. Google OAuth is also integrated.
+- **Task Management**: Users can create, search, update, and delete tasks.
+- **Drag-and-Drop**: Easily manage tasks between "To Do", "In Progress", and "Done" columns.
+- **Protected Routes**: Only authenticated users can access protected pages, and already logged-in users cannot access login or signup pages.
+- **Optimistic Updates**: React Query is used for server-side caching and optimistic UI updates.
+- **Responsive UI**: Developed with React Beautiful DnD and customized UI components.
 
-### Why/Problem?
-In a dynamic work environment, effective task management is crucial for team success. Traditional methods of task tracking through spreadsheets or manual systems can be cumbersome and prone to errors. The Cloud-Based Task Manager aims to address these challenges by providing a centralized platform for task management, enabling seamless collaboration and improved workflow efficiency.
+## 🛠️ Technologies Used
 
+### Frontend:
 
+- **React** (v18.3.1)
+- **Redux Toolkit** for global state management
+- **React Router** for routing
+- **React Query** for handling server data and caching
+- **React Hook Form** (with Zod validation)
+- **React Beautiful DnD** for drag-and-drop interactions
+- **Axios** for HTTP requests
+- **Flowbite-React** for UI components
+- **React Toastify** for user notifications
 
-### **Background**:
-With the rise of remote work and dispersed teams, there is a growing need for tools that facilitate effective communication and task coordination. The Cloud-Based Task Manager addresses this need by leveraging modern web technologies to create an intuitive and responsive task management solution. The MERN stack ensures scalability, while the integration of Redux Toolkit, Headless UI, and Tailwind CSS enhances user experience and performance.
+### Backend:
 
+- **Node.js** (v18.x)
+- **Express.js** (v4.19.2) for the API
+- **MongoDB** with **Mongoose** for the database
+- **JWT** for user authentication
+- **Bcrypt.js** for password hashing
+- **Cookie-Parser** for handling JWT cookies
 
-### 
-## **Admin Features:**
-1. **User Management:**
-    - Create admin accounts.
-    - Add and manage team members.
+## 🚀 Live Demo
 
-2. **Task Assignment:**
-    - Assign tasks to individual or multiple users.
-    - Update task details and status.
+Check out the live deployed version [here](https://taskmanger-4sy5.onrender.com).
 
-3. **Task Properties:**
-    - Label tasks as todo, in progress, or completed.
-    - Assign priority levels (high, medium, normal, low).
-    - Add and manage sub-tasks.
+## 🏁 Getting Started Locally
 
-4. **Asset Management:**
-    - Upload task assets, such as images.
+To get this project running on your local machine, follow these steps:
 
-5. **User Account Control:**
-    - Disable or activate user accounts.
-    - Permanently delete or trash tasks.
+### Prerequisites
 
+- **Node.js** (v18.x or later)
+- **MongoDB** (local installation or MongoDB Atlas)
 
-## **User Features:**
-1. **Task Interaction:**
-    - Change task status (in progress or completed).
-    - View detailed task information.
+### Installation
 
-2. **Communication:**
-    - Add comments or chat to task activities.
+1. Clone the repository:
 
+   ```bash
+   git clone https://github.com/razak571/mern_task_manager_app.git
+   ```
 
-## **General Features:**
-1. **Authentication and Authorization:**
-    - User login with secure authentication.
-    - Role-based access control.
+2. Navigate into the project directory:
+   ```bash
+   cd mern_task_manager_app
+   ```
 
-2. **Profile Management:**
-    - Update user profiles.
+### Backend Setup
 
-3. **Password Management:**
-    - Change passwords securely.
+1. Navigate to the backend folder:
 
-4. **Dashboard:**
-    - Provide a summary of user activities.
-    - Filter tasks into todo, in progress, or completed.
+   ```bash
+   cd backend
+   ```
 
+2. Install backend dependencies:
 
+   ```bash
+   npm install
+   ```
 
+3. Create a `.env` file in the `backend` folder and set the following environment variables:
 
-## **Technologies Used:**
-- **Frontend:**
-    - React (Vite)
-    - Redux Toolkit for State Management
-    - Headless UI
-    - Tailwind CSS
+   ```env
+   MONGO_URI=your_mongodb_connection_string
+   JWT_SECRET=your_jwt_secret
+   ```
 
+4. Start the backend server:
+   ```bash
+   npm start
+   ```
 
-- **Backend:**
-    - Node.js with Express.js
-    
-- **Database:**
-    - MongoDB for efficient and scalable data storage.
+The backend server will start at `http://localhost:5000`.
 
+### Frontend Setup
 
-The Cloud-Based Task Manager is an innovative solution that brings efficiency and organization to task management within teams. By harnessing the power of the MERN stack and modern frontend technologies, the platform provides a seamless experience for both administrators and users, fostering collaboration and productivity.
+1. Navigate to the frontend folder:
 
-&nbsp;
+   ```bash
+   cd ../frontend
+   ```
 
-## SETUP INSTRUCTIONS
+2. Install frontend dependencies:
 
+   ```bash
+   npm install
+   ```
 
-# Server Setup
+3. Create a `.env` file in the `frontend` folder and add the backend URL:
 
-## Environment variables
-First, create the environment variables file `.env` in the server folder. The `.env` file contains the following environment variables:
+   ```env
+   REACT_APP_API_URL=http://localhost:5000
+   ```
 
-- MONGODB_URI = `your MongoDB URL`
-- JWT_SECRET = `any secret key - must be secured`
-- PORT = `8800` or any port number
-- NODE_ENV = `development`
+4. Start the frontend development server:
+   ```bash
+   npm start
+   ```
 
+The app will be running at `http://localhost:3000`.
 
-&nbsp;
+## 🧪 Testing Locally
 
-## Set Up MongoDB:
+Once both servers (backend and frontend) are running, you can test the application by navigating to `http://localhost:3000` in your browser.
 
-1. Setting up MongoDB involves a few steps:
-    - Visit MongoDB Atlas Website
-        - Go to the MongoDB Atlas website: [https://www.mongodb.com/cloud/atlas](https://www.mongodb.com/cloud/atlas).
+## 📜 Available Scripts
 
-    - Create an Account
-    - Log in to your MongoDB Atlas account.
-    - Create a New Cluster
-    - Choose a Cloud Provider and Region
-    - Configure Cluster Settings
-    - Create Cluster
-    - Wait for Cluster to Deploy
-    - Create Database User
-    - Set Up IP Whitelist
-    - Connect to Cluster
-    - Configure Your Application
-    - Test the Connection
+In the project directories, you can run:
 
-2. Create a new database and configure the `.env` file with the MongoDB connection URL. 
+- `npm start`: Starts the development server.
+- `npm build`: Builds the app for production.
 
-## Steps to run server
+## 🚀 Future Enhancements
 
-1. Open the project in any editor of choice.
-2. Navigate into the server directory `cd server`.
-3. Run `npm i` or `npm install` to install the packages.
-4. Run `npm start` to start the server.
+- **User Avatar**: Implement profile avatars for users.
+- **Notifications**: Add real-time notifications for task updates.
+- **Improved UI**: Align UI elements like search button and filters with a more polished design.
 
-If configured correctly, you should see a message indicating that the server is running successfully and `Database Connected`.
+## 🐛 Known Issues
 
-&nbsp;
+- Minor alignment issues with the search button and add task button.
+- A small bug with cookies in production when using JWT (will be fixed soon).
 
-# Client Side Setup
+## 🤝 Contributing
 
-## Environment variables
-First, create the environment variables file `.env` in the client folder. The `.env` file contains the following environment variables:
+Feel free to fork the repository, submit issues, or make pull requests. Any contributions are welcome!
 
-- VITE_APP_BASE_URL = `http://localhost:8800` #Note: Change the port 8800 to your port number.
-- VITE_APP_FIREBASE_API_KEY = `Firebase api key`
+## 📄 License
 
-## Steps to run client
+This project is licensed under the MIT License.
 
-1. Navigate into the client directory `cd client`.
-2. Run `npm i` or `npm install` to install the packages.
-3. Run `npm start` to run the app on `http://localhost:3000`.
-4. Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## 👨‍💻 Author
 
+**Razak** - [GitHub](https://github.com/razak571)
 
+---
 
-&nbsp;
-
-## For Support, Contact:
-
-- Email: codewavewithasante@gmail.com
-- Telegram Chat: [https://t.me/Codewave_with_asante](https://t.me/Codewave_with_asante)
+⭐️ If you found this project helpful, please give it a star on GitHub! ⭐️
