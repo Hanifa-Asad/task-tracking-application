@@ -150,14 +150,6 @@ In the project directories, you can run:
 
 Feel free to fork the repository, submit issues, or make pull requests. Any contributions are welcome!
 
-## 📄 License
-
-This project is licensed under the MIT License.
-
-## 👨‍💻 Author
-
-**Razak** - [GitHub](https://github.com/razak571)
-
 ---
 
 ⭐️ If you found this project helpful, please give it a star on GitHub! ⭐️
