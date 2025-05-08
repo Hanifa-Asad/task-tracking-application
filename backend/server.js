@@ -5,7 +5,7 @@ import userRoutes from "./routes/userRoutes.js";
 import cookieParser from "cookie-parser";
 import cors from "cors";
 import taskRoutes from "./routes/taskRoutes.js";
-
+import { createServer } from "http";
 const app = express();
 
 const secret = process.env.COOKIE_SECRET;
@@ -35,9 +35,12 @@ app.get("/", (req, res) => {
 });
 
 
+
+
+
 const handler = async (req, res) => {
-  await connectDB(); // Ensure DB is connected for each invocation
-  return app(req, res);
+  await connectDB();
+  return app(req, res); // Express handles the request
 };
 
 export default handler;
