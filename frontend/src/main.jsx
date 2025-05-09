@@ -14,7 +14,7 @@ import axios from "axios";
 import PrivateRoute from "./redux/features/auth/PrivateRoute.jsx";
 import NonAuthenticatedUser from "./redux/features/auth/NonAuthenticatedUser.jsx";
 
-axios.defaults.withCredentials = true;
+axios.defaults.withCredentials = false;
 
 const queryClient = new QueryClient({
   // i can give default options here
