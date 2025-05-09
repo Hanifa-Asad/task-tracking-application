@@ -14,7 +14,10 @@ import OAuth from "../components/OAuth";
 const baseURL = import.meta.env.VITE_BACKEND_BASE_URL;
 
 const createUser = async (userData) => {
-  const { data } = await axios.post(`${baseURL}/api/v1/user/signup`, userData);
+  console.log("Sending to backend:", userData); // ✅ Debug
+  const { data } = await axios.post(`${baseURL}/api/v1/user/signup`, userData, {
+    withCredentials: true, // Optional: needed if you’re using cookies
+  });
   return data;
 };
 
