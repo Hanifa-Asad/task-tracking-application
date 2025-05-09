@@ -72,4 +72,4 @@ const getTaskById = async (req, res) => {
 };
 
 
-export { getTasks, createTask, updateTask, deleteTask, reorderTasks, getTaskById };
+export { getTasks, createTask, updateTask, deleteTask, reorderTasks, getTaskById, };
