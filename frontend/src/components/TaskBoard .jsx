@@ -14,7 +14,7 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import ClipLoader from "react-spinners/ClipLoader";
 
-axios.defaults.withCredentials = true;
+axios.defaults.withCredentials = false;
 
 const API_URL =
   import.meta.env.VITE_BACKEND_BASE_URL || "http://localhost:3000";
