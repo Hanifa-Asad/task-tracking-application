@@ -56,7 +56,6 @@ function Signup() {
   const mutation = useMutation({
     mutationFn: createUser,
     onSuccess: (data) => {
-      // Dispatch the user data to Redux store
       dispatch(setCredentials(data));
       queryClient.setQueryData(["user"], data);
       toast.success("Signup successful");
@@ -70,7 +69,8 @@ function Signup() {
   });
 
   const signup = (data) => {
-    mutation.mutate(data);
+    const { confirmPassword, ...userData } = data; // ✅ remove confirmPassword
+    mutation.mutate(userData);
   };
 
   return (
