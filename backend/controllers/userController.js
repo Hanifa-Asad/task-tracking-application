@@ -12,39 +12,38 @@ const domain =
 const signupUser = asyncHandler(async (req, res) => {
   const { firstname, lastname, email, password } = req.body;
 
-  if (!userModel || !firstname || !lastname || !email || !password) {
-    throw new Error("Please fill all the fields");
+  console.log("Incoming signup payload:", req.body); // ✅ Debug
+
+  if (!firstname || !lastname || !email || !password) {
+    return res.status(400).json({ message: "Please fill all the fields" });
   }
 
   const existUser = await userModel.findOne({ email });
   if (existUser) {
-    return res.status(400).send("User already exists");
+    return res.status(400).json({ message: "User already exists" });
   }
 
   const salt = await bcrypt.genSalt(10);
   const hashedPassword = await bcrypt.hash(password, salt);
 
   const newUser = new userModel({
-    firstname: firstname,
-    lastname: lastname,
-    email: email,
+    firstname,
+    lastname,
+    email,
     password: hashedPassword,
   });
 
-  try {
-    await newUser.save();
-    generateToken(res, newUser._id);
-    res.status(201).json({
-      success: true,
-      _id: newUser._id,
-      firstname: newUser.firstname,
-      lastname: newUser.lastname,
-      email: newUser.email,
-    });
-  } catch (error) {
-    res.status(400);
-    throw new Error("Invalid user data");
-  }
+  await newUser.save();
+
+  generateToken(res, newUser._id);
+
+  res.status(201).json({
+    success: true,
+    _id: newUser._id,
+    firstname: newUser.firstname,
+    lastname: newUser.lastname,
+    email: newUser.email,
+  });
 });
 
 const loginUser = asyncHandler(async (req, res) => {
