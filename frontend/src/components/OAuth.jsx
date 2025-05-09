@@ -27,11 +27,8 @@ const OAuth = ({ title }) => {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({
-          name: resultsFromGoogle.user.displayName,
-          email: resultsFromGoogle.user.email,
-          googlePhotoUrl: resultsFromGoogle.user.photoURL,
-        }),
+body: JSON.stringify({ name, email, password })
+
       });
 
       const data = await res.json();
