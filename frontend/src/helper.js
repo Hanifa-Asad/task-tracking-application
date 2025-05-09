@@ -9,7 +9,7 @@ const baseURL =
 // Axios instance
 const api = axios.create({
   baseURL: `${baseURL}/api/v1`,
-  withCredentials: true,
+  withCredentials: false,
 });
 
 // API calls
