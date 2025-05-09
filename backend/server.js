@@ -23,7 +23,7 @@ app.use(
       "http://localhost:5173",
       "https://task-tracking-application-bcgv.vercel.app",
     ],
-    credentials: true,
+    credentials: false,
     methods: ["GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"],
     allowedHeaders: ["Content-Type", "Authorization"],
   })
